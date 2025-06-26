@@ -1,0 +1,27 @@
+<launch>
+  <!-- Load robot description -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find station_neu)/urdf/station_neu.urdf"/>
+
+  <!-- SRDF and semantic config -->
+  <param name="robot_description_semantic" textfile="$(find station_moveit_config)/config/station_neu.srdf" />
+
+  <!-- Kinematics config -->
+  <param name="kinematics_parameters" textfile="$(find station_moveit_config)/config/kinematics.yaml" />
+
+  <!-- Joint limits -->
+  <param name="joint_limits" textfile="$(find station_moveit_config)/config/joint_limits.yaml" />
+
+  <!-- Controllers (real ones) -->
+  <rosparam file="$(find station_moveit_config)/config/ros_controllers.yaml" command="load" />
+  <rosparam file="$(find station_moveit_config)/config/simple_moveit_controllers.yaml" command="load" />
+
+  <!-- MoveIt planning execution -->
+  <include file="$(find station_moveit_config)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true" />
+    <arg name="capabilities" value=""/>
+  </include>
+
+  <!-- RViz -->
+  <include file="$(find station_moveit_config)/launch/moveit_rviz.launch" />
+</launch>
+

@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: articulated
+    relative_path: urdf/articulated.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/articulated.srdf
+  CONFIG:
+    author_name: raffaelschinner
+    author_email: raffael.schinner2000@gmail.com
+    generated_timestamp: 1750673585

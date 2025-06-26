@@ -1,0 +1,21 @@
+controller_list:
+  - name: knick_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - Knick_Joint_1
+      - Knick_Joint_2
+      - Knick_Joint_3
+      - Knick_Joint_4
+      - Knick_Joint_5
+      - Knick_Joint_6
+      - Knick_Joint_7
+  - name: scara_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - Scara_Joint_1
+      - Scara_Joint_2
+      - Scara_Joint_3

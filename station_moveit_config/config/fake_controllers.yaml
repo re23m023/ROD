@@ -1,0 +1,22 @@
+controller_list:
+  - name: fake_knick_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - Knick_Joint_1
+      - Knick_Joint_2
+      - Knick_Joint_3
+      - Knick_Joint_4
+      - Knick_Joint_5
+      - Knick_Joint_6
+      - Endeffector
+  - name: fake_scara_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - Scara_Joint_1
+      - Scara_Joint_2
+      - Scara_Joint_3
+initial:  # Define initial robot poses per group
+  - group: knick_arm
+    pose: knick_home
+  - group: scara_arm
+    pose: scara_home

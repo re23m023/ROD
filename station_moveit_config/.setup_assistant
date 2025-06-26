@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: station_neu
+    relative_path: urdf/station_neu.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/station_neu.srdf
+  CONFIG:
+    author_name: schwarz_schinner_gruppe8
+    author_email: raffael.schinner2000@gmail.com
+    generated_timestamp: 1750866994

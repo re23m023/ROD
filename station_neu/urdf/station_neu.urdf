@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="station_neu">
+  
+  <!--<link name="base" />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="base" />
+    <child link="world_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint> -->
+  
+<link name="dummy_base"/>
+
+<joint name="fixed_world_joint" type="fixed">
+  <parent link="dummy_base"/>
+  <child link="world_link"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+  
+  <link
+    name="world_link">
+    <!--<inertial>-->
+      <origin
+        xyz="0.11667 -3.5023E-16 0.20356"
+        rpy="0 0 0" />
+      <mass
+        value="102.18" />
+      <!--<inertia
+        ixx="1"
+        ixy="0"
+        ixz="0"
+        iyy="1"
+        iyz="0"
+        izz="1" />
+    </inertial>--> 
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/world_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/world_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Scara_Link_Base">
+    <inertial>
+      <origin
+        xyz="0 -4.13916398138253E-16 0.109951208906545"
+        rpy="0 0 0" />
+      <mass
+        value="2.50365268707903" />
+      <inertia
+        ixx="0.0195105164196079"
+        ixy="4.49986253228847E-19"
+        ixz="-5.72367154351986E-19"
+        iyy="0.0195105164196079"
+        iyz="1.23355271719257E-18"
+        izz="0.00613322448503702" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Scara_Link_Base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Scara_Link_Base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Scara_Joint_Base"
+    type="fixed">
+    <origin
+      xyz="0.350000000000001 0 0.51"
+      rpy="0 0 0" />
+    <parent
+      link="world_link" />
+    <child
+      link="Scara_Link_Base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Scara_Link_1">
+    <inertial>
+      <origin
+        xyz="0.082040070476319 -1.08746100486686E-16 0.0305105196246397"
+        rpy="0 0 0" />
+      <mass
+        value="0.71062195084784" />
+      <inertia
+        ixx="0.000372083066369812"
+        ixy="8.76294890679696E-09"
+        ixz="1.59785787492229E-06"
+        iyy="0.0035198367971286"
+        iyz="-1.21105414097884E-19"
+        izz="0.00384668439008065" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Scara_Link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Scara_Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Scara_Joint_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.26"
+      rpy="0 0 0" />
+    <parent
+      link="Scara_Link_Base" />
+    <child
+      link="Scara_Link_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="100"
+      velocity="2" />
+  </joint>
+  <link
+    name="Scara_Link_2">
+    <inertial>
+      <origin
+        xyz="0.0519735104401849 -0.000615042612922292 0.0651115592931846"
+        rpy="0 0 0" />
+      <mass
+        value="0.999722132459447" />
+      <inertia
+        ixx="0.00127890304043025"
+        ixy="3.72143052877103E-05"
+        ixz="0.000471381234958871"
+        iyy="0.00442319711873342"
+        iyz="-5.57843000481055E-06"
+        izz="0.00427083097632839" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Scara_Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Scara_Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Scara_Joint_2"
+    type="revolute">
+    <origin
+      xyz="0.2 0 0.05"
+      rpy="0 0 0.011833" />
+    <parent
+      link="Scara_Link_1" />
+    <child
+      link="Scara_Link_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="100"
+      velocity="2" />
+  </joint>
+  <link
+    name="Scara_Link_3">
+    <inertial>
+      <origin
+        xyz="1.36765496573377E-05 1.5026774938004E-05 0.116430136477031"
+        rpy="0 0 0" />
+      <mass
+        value="0.115997253663347" />
+      <inertia
+        ixx="0.00162112658713401"
+        ixy="1.22598193040102E-08"
+        ixz="-1.80201754211201E-09"
+        iyy="0.00162112889854667"
+        iyz="-1.98616424713082E-09"
+        izz="5.22719196225459E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Scara_Link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Scara_Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Scara_Joint_3"
+    type="prismatic">
+    <origin
+      xyz="0.14999 -0.001775 0.02"
+      rpy="3.1416 0 0.082814" />
+    <parent
+      link="Scara_Link_2" />
+    <child
+      link="Scara_Link_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.07"
+      upper="0.002"
+      effort="100"
+      velocity="0.2" />
+  </joint>
+  <link
+    name="Knick_Link_Base">
+    <inertial>
+      <origin
+        xyz="0.00128611942669327 3.58042400914017E-07 0.0617368360004532"
+        rpy="0 0 0" />
+      <mass
+        value="3.18805790765431" />
+      <inertia
+        ixx="0.0108360916097952"
+        ixy="1.0778046724457E-07"
+        ixz="-0.000682378530740249"
+        iyy="0.0116710774221464"
+        iyz="5.61139425666584E-08"
+        izz="0.0127157710155053" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_Base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.909803921568627 0.443137254901961 0.0313725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_Base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Knick_Joint_Base"
+    type="fixed">
+    <origin
+      xyz="-0.45 0 0.51"
+      rpy="0 0 0" />
+    <parent
+      link="world_link" />
+    <child
+      link="Knick_Link_Base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Knick_Link_1">
+    <inertial>
+      <origin
+        xyz="4.9960036108132E-16 -5.37480130431917E-16 0.0343975276785481"
+        rpy="0 0 0" />
+      <mass
+        value="1.00707557532342" />
+      <inertia
+        ixx="0.00385102211473437"
+        ixy="6.23775394359916E-10"
+        ixz="4.92658147211986E-19"
+        iyy="0.0019207561625128"
+        iyz="5.67930587973647E-19"
+        izz="0.00434738361070071" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Knick_Joint_1"
+    type="revolute">
+    <origin
+      xyz="0.0104999999999995 0 0.135"
+      rpy="0 0 0" />
+    <parent
+      link="Knick_Link_Base" />
+    <child
+      link="Knick_Link_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Knick_Link_2">
+    <inertial>
+      <origin
+        xyz="-6.52740583806377E-10 -0.0599992742466233 5.87878219883058E-07"
+        rpy="0 0 0" />
+      <mass
+        value="1.35536530570178" />
+      <inertia
+        ixx="0.00340678769029806"
+        ixy="-5.86601662213092E-10"
+        ixz="-6.43243808763956E-10"
+        iyy="0.0026906883868499"
+        iyz="7.16206802163247E-14"
+        izz="0.00213791141814024" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Knick_Joint_2"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0600000000000006"
+      rpy="-1.57079632679491 0 0" />
+    <parent
+      link="Knick_Link_1" />
+    <child
+      link="Knick_Link_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.8"
+      upper="1.8"
+      effort="100"
+      velocity="2" />
+  </joint>
+  <link
+    name="Knick_Link_3">
+    <inertial>
+      <origin
+        xyz="-0.0575499251416763 7.21644966006352E-16 5.87876713632118E-07"
+        rpy="0 0 0" />
+      <mass
+        value="1.06598978839683" />
+      <inertia
+        ixx="0.00474318187244463"
+        ixy="-1.98065605564113E-19"
+        ixz="2.50871738428352E-18"
+        iyy="0.0080173732559331"
+        iyz="4.10281583826252E-19"
+        izz="0.00420327013994247" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Knick_Joint_3"
+    type="revolute">
+    <origin
+      xyz="0 -0.119999999999999 0"
+      rpy="0 0 1.5707963267949" />
+    <parent
+      link="Knick_Link_2" />
+    <child
+      link="Knick_Link_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.8"
+      upper="1.8"
+      effort="100"
+      velocity="2" />
+  </joint>
+  <link
+    name="Knick_Link_4">
+    <inertial>
+      <origin
+        xyz="-0.0123461980766574 -0.0172605923851256 5.87876712340623E-07"
+        rpy="0 0 0" />
+      <mass
+        value="2.04666620981605" />
+      <inertia
+        ixx="0.00654782221736673"
+        ixy="-0.000881414246096526"
+        ixz="-6.23301869240812E-19"
+        iyy="0.0059499921389293"
+        iyz="-6.16451572044363E-18"
+        izz="0.00659163741079009" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Knick_Joint_4"
+    type="revolute">
+    <origin
+      xyz="-0.12 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Knick_Link_3" />
+    <child
+      link="Knick_Link_4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="1"
+      effort="50"
+      velocity="2" />
+  </joint>
+  <link
+    name="Knick_Link_5">
+    <inertial>
+      <origin
+        xyz="-9.17603970118641E-06 3.58277260409535E-05 0.144921673296194"
+        rpy="0 0 0" />
+      <mass
+        value="0.325688517709461" />
+      <inertia
+        ixx="0.000784405454959843"
+        ixy="-6.35288561358632E-11"
+        ixz="-8.27859229596081E-08"
+        iyy="0.000627897905556097"
+        iyz="2.96273660768042E-07"
+        izz="0.000542980209868071" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Knick_Joint_5"
+    type="revolute">
+    <origin
+      xyz="-0.0425000000000004 0 0"
+      rpy="-1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="Knick_Link_4" />
+    <child
+      link="Knick_Link_5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="30"
+      velocity="2" />
+  </joint>
+  <link
+    name="Knick_Link_6">
+    <inertial>
+      <origin
+        xyz="0 0.0031135658703155 -1.166917188077E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.318196109669744" />
+      <inertia
+        ixx="0.000296373081861996"
+        ixy="9.89818585521294E-21"
+        ixz="4.64368647316017E-20"
+        iyy="0.000269774523273202"
+        iyz="1.74510257709105E-08"
+        izz="0.000310319948975258" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.486274509803922 0.235294117647059 0.0156862745098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Knick_Joint_6"
+    type="revolute">
+    <origin
+      xyz="0 0 0.187253487985988"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="Knick_Link_5" />
+    <child
+      link="Knick_Link_6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="30"
+      velocity="2" />
+  </joint>
+  <link
+    name="Knick_Link_7">
+    <inertial>
+      <origin
+        xyz="-1.06753534456772E-07 -1.57372225696792E-07 0.0221291023471828"
+        rpy="0 0 0" />
+      <mass
+        value="0.0780517503035172" />
+      <inertia
+        ixx="2.28791002653248E-05"
+        ixy="3.67501956368013E-16"
+        ixz="6.61667618962374E-11"
+        iyy="2.28791002645871E-05"
+        iyz="2.73372220827156E-11"
+        izz="2.51698737337599E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Knick_Link_7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Knick_Joint_7"
+    type="continuous">
+    <origin
+      xyz="0 0.0474465120140123 0"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="Knick_Link_6" />
+    <child
+      link="Knick_Link_7" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="30"
+      velocity="2" />
+  </joint>
+  <link
+    name="Handy_Link">
+    <inertial>
+      <origin
+        xyz="0.000999999999998002 -3.33066907387547E-16 -0.005"
+        rpy="0 0 0" />
+      <mass
+        value="0.10366" />
+      <inertia
+        ixx="0.000184998546666667"
+        ixy="-7.50981322845493E-21"
+        ixz="-3.21339724939038E-22"
+        iyy="4.44096716666666E-05"
+        iyz="1.03055675249273E-21"
+        izz="0.000227680551666667" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Handy_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://station_neu/meshes/Handy_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Handy_Joint"
+    type="fixed">
+    <origin
+      xyz="0.7 0 0.51"
+      rpy="0 0 0" />
+    <parent
+      link="world_link" />
+    <child
+      link="Handy_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+  
+	<transmission name="Scara_Joint_1_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Scara_Joint_1">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Scara_Motor_1">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+	  </actuator>
+	</transmission>
+
+	<transmission name="Scara_Joint_2_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Scara_Joint_2">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Scara_Motor_2">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+	  </actuator>
+	</transmission>
+
+	<transmission name="Scara_Joint_3_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Scara_Joint_3">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Scara_Motor_3">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+	  </actuator>
+	</transmission>
+
+	<transmission name="Knick_Joint_1_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Knick_Joint_1">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Knick_Motor_1">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+	  </actuator>
+	</transmission>
+
+	<transmission name="Knick_Joint_2_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Knick_Joint_2">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Knick_Motor_2">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+	  </actuator>
+	</transmission>
+
+	<transmission name="Knick_Joint_3_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Knick_Joint_3">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Knick_Motor_3">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+	  </actuator>
+	</transmission>
+
+	<transmission name="Knick_Joint_4_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Knick_Joint_4">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Knick_Motor_4">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+	  </actuator>
+	</transmission>
+
+	<transmission name="Knick_Joint_5_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Knick_Joint_5">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Knick_Motor_5">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+	  </actuator>
+	</transmission>
+
+	<transmission name="Knick_Joint_6_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Knick_Joint_6">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Knick_Motor_6">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+	  </actuator>
+	</transmission>
+	
+	<transmission name="Knick_Joint_7_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Knick_Joint_7">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Knick_Motor_7">
+	    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    <mechanicalReduction>1</mechanicalReduction>
+	  </actuator>
+	</transmission>
+  
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" />
+  </gazebo>
+  
+</robot>

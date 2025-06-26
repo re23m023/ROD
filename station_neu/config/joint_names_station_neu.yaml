@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'Scara_Joint_1', 'Scara_Joint_2', 'Scara_Joint_3', 'Knick_Joint_1', 'Knick_Joint_2', 'Knick_Joint_3', 'Knick_Joint_4', 'Knick_Joint_5', 'Knick_Joint_6', 'Endeffector', ]

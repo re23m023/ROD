@@ -1,0 +1,8 @@
+[
+  {
+    "joints": [1, 0, 0, 0, 0, 0.5, 0],
+    "description": "Approach position",
+    "pause": 1,
+    "action": null
+  }
+]

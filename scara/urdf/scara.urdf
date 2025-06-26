@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="scara">
+
+  <!-- Welt- und Basis-Link -->
+  <link name="world" />
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="8.7173E-18 -3.8342E-18 0.10291" rpy="0 0 0" />
+      <mass value="2.7821" />
+      <inertia ixx="0.021401" ixy="-1.9687E-19" ixz="-3.5753E-19" iyy="0.021401" iyz="6.9508E-19" izz="0.0074192" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scara/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scara/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <!-- Link1 -->
+  <link name="Link1">
+    <inertial>
+      <origin xyz="0.08204 -8.9299E-17 0.030511" rpy="0 0 0" />
+      <mass value="0.71062" />
+      <inertia ixx="0.00037208" ixy="8.7629E-09" ixz="1.5979E-06" iyy="0.0035198" iyz="3.6632E-20" izz="0.0038467" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://scara/meshes/Link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://scara/meshes/Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Joint1" type="revolute">
+    <origin xyz="0 0 0.26" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="Link1" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="100" velocity="1.5" />
+  </joint>
+
+  <!-- Link2 -->
+  <link name="Link2">
+    <inertial>
+      <origin xyz="0.051977 6.6437E-09 0.065112" rpy="0 0 0" />
+      <mass value="0.99972" />
+      <inertia ixx="0.0012785" ixy="-1.638E-10" ixz="0.00047141" iyy="0.0044236" iyz="-1.5222E-10" izz="0.0042708" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://scara/meshes/Link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://scara/meshes/Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Joint2" type="revolute">
+    <origin xyz="0.2 0 0.05" rpy="0 0 0" />
+    <parent link="Link1" />
+    <child link="Link2" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2" upper="2" effort="100" velocity="1.5" />
+  </joint>
+
+  <!-- Link3 -->
+  <link name="Link3">
+    <inertial>
+      <origin xyz="2.4043E-10 -4.07E-11 0.077691" rpy="0 0 0" />
+      <mass value="0.10305" />
+      <inertia ixx="0.0014027" ixy="3.1594E-10" ixz="-3.8252E-12" iyy="0.0014027" iyz="6.4751E-13" izz="4.2483E-06" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://scara/meshes/Link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://scara/meshes/Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Joint3" type="prismatic">
+    <origin xyz="0.15 0 0.02" rpy="3.1416 0 0" />
+    <parent link="Link2" />
+    <child link="Link3" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0.05" upper="0.3" effort="100" velocity="0.3" />
+  </joint>
+
+  <!-- Endeffektor (Link4EF) -->
+  <link name="Link4EF">
+    <inertial>
+      <origin xyz="-5.1976E-05 -0.00030708 -0.014939" rpy="0 0 0" />
+      <mass value="0.0075676" />
+      <inertia ixx="6.4307E-07" ixy="3.7365E-09" ixz="4.4753E-10" iyy="6.6451E-07" iyz="2.6442E-09" izz="7.2342E-07" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://scara/meshes/Link4EF.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://scara/meshes/Link4EF.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Joint4EF" type="revolute">
+    <origin xyz="0 0 0.295" rpy="0 0 0" />
+    <parent link="Link3" />
+    <child link="Link4EF" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-3.14" upper="3.14" effort="50" velocity="1.5" />
+  </joint>
+
+  <!-- Transmissions -->
+  <transmission name="Joint1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Joint2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Joint3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Joint4EF_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint4EF">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Gazebo Plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" />
+  </gazebo>
+
+</robot>
+

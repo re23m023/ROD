@@ -1,0 +1,30 @@
+<launch>
+    <!-- Roboterbeschreibung laden -->
+    <param name="robot_description" textfile="$(find station_neu)/urdf/station_neu.urdf"/>
+
+    <!-- Leere Gazebo-Welt starten -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <!-- Modell in Gazebo spawnen -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+          args="-param robot_description -urdf -model station_neu"
+          output="screen" />
+
+    <!-- Controller-Konfiguration laden -->
+    <rosparam file="$(find station_moveit_config)/config/ros_controllers.yaml" command="load"/>
+
+    <!-- Controller starten -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+          args="joint_state_controller knick_arm_controller scara_arm_controller"
+          output="screen"/>
+
+    <!-- State Publisher -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+</launch>
+
